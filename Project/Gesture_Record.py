@@ -19,7 +19,7 @@ gesture_name = raw_input("Enter Gesture Name ")
 
 
 images = []
-num_sec = 5
+num_sec = 10#5
 
 
 # In[80]:
