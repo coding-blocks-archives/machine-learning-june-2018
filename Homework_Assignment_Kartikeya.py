@@ -29,16 +29,10 @@ def multiply(bigMatrix, smallMatrix, initialrow, initialcolumn):
     value = 0
     for columns in range(smallMatrix.shape[1]):
         for rows in range(smallMatrix.shape[0]):
-            #print('icol' , initialcolumn + columns )
             value = value + smallMatrix[rows][columns] * bigMatrix[initialrow +
                                                                    rows][initialcolumn
                                                                          +
                                                                          columns]
-
-# print('irow',initialrow+rows)
-# print('icol',initialcolumn+columns)
-# print('rows',rows)
-# print('columns',columns)
     return value
 
 for ix in (smallMatrix):
