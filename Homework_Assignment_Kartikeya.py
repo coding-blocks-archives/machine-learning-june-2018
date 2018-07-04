@@ -3,23 +3,10 @@ import numpy as np
 
 big = int(input("Define size for the big matrix : "))
 small = int(input("Define size for the small matrix : "))
-k = int(
-    input(
-        'Do you want to get randomised values for the matrices?Input 1 for yes '
-    ))
 bigMatrix = np.random.rand(
     big, big
 ) * 100 // 1  #Randomising two square matrices with values in between 0~99
 smallMatrix = np.random.rand(small, small) * 100 // 1
-if not k == 1:
-    for rows in range(big):
-        for columns in range(big):
-            bigMatrix[rows][columns] = input(
-                'Enter value for big matrix in order breadth first ')
-    for rows in range(small):
-        for columns in range(small):
-            smallMatrix[rows][columns] = input(
-                'Enter value for small matrix in order breadth first ')
 print(smallMatrix)
 print('-------------------------------')
 print(bigMatrix)
