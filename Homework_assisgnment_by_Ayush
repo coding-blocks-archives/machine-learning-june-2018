@@ -1,0 +1,31 @@
+import numpy as np
+
+## Defining Matrices
+
+mat_1 = np.array([[1,2],[3,4]])
+m= mat_1.shape[0]
+mat_2 = np.array([[1,2,3],[4,5,6],[7,8,9]])
+
+## Function for multiplying Matrices
+def multiply(mat_1,mat_2):
+    a1 = 0
+    a2 = 0
+    a3 = 0
+    a4 = 0
+    for ix in range(m):
+         for jx in range(m):
+                a1 += mat_1[ix][jx]*mat_2[ix][jx]
+    for ix in range(m):
+         for jx in range(m):
+                a2 += mat_1[ix][jx]*mat_2[ix][jx+1]
+    for ix in range(m):
+         for jx in range(m):
+                a3 += mat_1[ix][jx]*mat_2[ix+1][jx]
+    for ix in range(m):
+         for jx in range(m):
+                a4 += mat_1[ix][jx]*mat_2[ix+1][jx+1]            
+    mat_new = np.array([[a1,a2],[a3,a4]])
+    return mat_new
+    
+    m = multiply(mat_1,mat_2)
+    print m
