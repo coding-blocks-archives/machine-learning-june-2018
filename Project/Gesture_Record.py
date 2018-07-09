@@ -19,7 +19,7 @@ gesture_name = raw_input("Enter Gesture Name ")
 
 
 images = []
-num_sec = 10#5
+num_frames = 60
 
 
 # In[80]:
@@ -29,7 +29,11 @@ capture_start = False
 cv2.namedWindow("Video", cv2.WINDOW_NORMAL)
 
 vc = cv2.VideoCapture(0)
+vc.set(cv2.CAP_PROP_FPS, 5)
+
 rval, frame = vc.read()
+
+cnt = 0
 
 while True:
     
@@ -45,14 +49,13 @@ while True:
         break
     elif keypress == ord('c'):
         capture_start = True
-        start = time.time()
     
     if ( capture_start ):
         img = cv2.flip(frame, 1)
         #img = cv2.cvtColor( img, cv2.COLOR_RGB2BGR )
         images.append(img)
-        end = time.time()
-        if ( end - start >= num_sec ):
+        cnt += 1
+        if ( cnt > num_frames ):
             break
         
 vc.release()
@@ -98,7 +101,7 @@ except (IOError) as e:
 print ("[i] Creating Video")
 output = './' + folder_name + '/output.mp4'
 fourcc = cv2.VideoWriter_fourcc(*'mp4v') # Be sure to use lower case
-out = cv2.VideoWriter(output, fourcc, 20.0, (images[0].shape[1], images[0].shape[0]) )
+out = cv2.VideoWriter(output, fourcc, 5.0, (images[0].shape[1], images[0].shape[0]) )
 
 for image in images:
 
