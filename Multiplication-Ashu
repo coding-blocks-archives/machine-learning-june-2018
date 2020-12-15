@@ -1,0 +1,24 @@
+import numpy as np
+b=np.array([[1,2,3],[4,5,6],[7,8,9] ])
+a=np.array([[1,2],[3,4]])
+b1=np.array([[1,2],[3,4] ])
+a1=np.array([[5,3]])
+def multipy(b,a):
+    row=b.shape[0]-a.shape[0]+1
+    col=b.shape[1]-a.shape[1]+1
+    new=np.ones((row,col))
+    for i in range(row):
+        for j in range(col):
+            k=i
+            ri=0
+            tot=0
+            for k in range(k,i+a.shape[0]):
+                l=j
+                ci=0
+                for l in range(l,j+a.shape[1]):
+                        tot+=b[k,l]*a[ri,ci]
+                        ci+=1
+                ri+=1
+            new[i,j]=tot
+    return new        
+    print multipy(b1,a1)
